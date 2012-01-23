@@ -1,0 +1,27 @@
+= form_for @user do |f|
+  - if @user.errors.any?
+    %div.alert-message.block-message.error
+      %p
+        %h3 The form is invalid
+        %ul
+        - for message in @user.errors.full_messages
+          %li
+            = message
+
+  %div.clearfix
+    = f.label :nickname
+    %div.input
+      = f.text_field :nickname, :placeholder => "username", :class => "span5"
+  %div.clearfix
+    = f.label :email, :length => 40
+    %div.input
+      = f.email_field :email, :placeholder => "email", :class => "span5"
+  %div.clearfix
+    = f.label :password, :length => 40
+    %div.input
+      = f.password_field :password, :placeholder => "password", :class => "span5"
+  %div.actions
+    = f.submit :class => "btn primary"
+
+- content_for :sidebar do
+  %h3 Already have an account?

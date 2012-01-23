@@ -1,10 +1,36 @@
 <!DOCTYPE html>
 %html
   %head
-  %title
-    BookFlow
-    %= stylesheet_link_tag    "application"
-    %= javascript_include_tag "application"
-    %= csrf_meta_tags %
+    %title
+      BookFlow
+    = stylesheet_link_tag "application"
+    = stylesheet_link_tag "http://twitter.github.com/bootstrap/1.4.0/bootstrap.min.css"
+    = csrf_meta_tags
   %body
-    %= yield
+    %div.topbar
+      %div.fill
+        %div.container
+          %a.brand{:href=>"#"} Bookflow
+          %ul.nav
+            %li.active
+              %a Home
+            %li
+              %a About
+            %li
+              %a Contact
+
+    %div.container
+      %div.content
+        %div.page-header
+          %h1
+            Signup
+            %small Create a new user account
+        %div.row
+          %div.span10
+            = yield
+          %div.span4
+            = yield(:sidebar)
+
+      %footer
+        %p &copy; 2012 Sparkling Bookworm
+  = javascript_include_tag "application"
